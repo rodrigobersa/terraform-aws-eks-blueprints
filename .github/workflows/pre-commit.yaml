@@ -123,7 +123,6 @@ jobs:
           restore-keys: ${{ runner.os }}-terraform-
 
       - name: Install tfsec
-        if: steps.changes.outputs.src== 'true'
         run: curl -sSLo ./tfsec https://github.com/aquasecurity/tfsec/releases/download/${{ env.TFSEC_VERSION }}/tfsec-$(uname)-amd64 && chmod +x tfsec && sudo mv tfsec /usr/bin/
 
       - name: Terraform min/max versions
