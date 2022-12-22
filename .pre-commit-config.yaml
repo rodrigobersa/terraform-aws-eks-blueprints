@@ -31,9 +31,9 @@ repos:
           - '--args=--only=terraform_required_providers'
           - '--args=--only=terraform_standard_module_structure'
           - '--args=--only=terraform_workspace_remote'
-      - id: terraform_validate
-        exclude: deploy
       - id: terraform_tfsec
-        files: ^modules/kubernetes-addons/ # only scan `examples/*` which are the implementation
+        files: ^modules/ # only scan `examples/*` which are the implementation
         args:
           - --args=--concise-output
+      - id: terraform_validate
+        exclude: deploy
