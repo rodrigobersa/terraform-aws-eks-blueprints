@@ -34,5 +34,6 @@ repos:
       - id: terraform_validate
         exclude: deploy
       - id: terraform_tfsec
+        files: ^modules/ # only scan `examples/*` which are the implementation
         args:
           - --args=--concise-output
