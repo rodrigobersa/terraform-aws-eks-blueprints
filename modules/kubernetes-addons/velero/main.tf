@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "velero" {
       "ec2:DescribeSnapshots",
       "ec2:DescribeVolumes",
     ]
-    resources = ["*"]
+    resources = ["arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:instance/*"]
   }
 
   statement {
