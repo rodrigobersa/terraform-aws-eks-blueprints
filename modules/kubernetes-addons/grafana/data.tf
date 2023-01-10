@@ -8,6 +8,7 @@ data "aws_iam_policy_document" "this" {
       "cloudwatch:DescribeAlarmsForMetric",
       "cloudwatch:ListMetrics",
       "cloudwatch:GetMetricData",
+      "cloudwatch:GetMetricStatistics"
     ]
   }
 
