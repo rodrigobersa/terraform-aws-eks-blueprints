@@ -6,11 +6,29 @@ data "aws_iam_policy_document" "this" {
 
     actions = [
       "cloudwatch:DescribeAlarmsForMetric",
-      "cloudwatch:DescribeAlarmHistory",
-      "cloudwatch:DescribeAlarms",
       "cloudwatch:ListMetrics",
       "cloudwatch:GetMetricData",
+    ]
+  }
+
+  statement {
+    sid       = "AllowGetInsightsCloudWatch"
+    effect    = "Allow"
+    resources = ["arn:${var.addon_context.aws_partition_id}:cloudwatch:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:insight-rule/*"]
+
+    actions = [
       "cloudwatch:GetInsightRuleReport",
+    ]
+  }
+
+  statement {
+    sid       = "AllowReadingAlarmHistoryFromCloudWatch"
+    effect    = "Allow"
+    resources = ["arn:${var.addon_context.aws_partition_id}:cloudwatch:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:alarm:*"]
+
+    actions = [
+      "cloudwatch:DescribeAlarmHistory",
+      "cloudwatch:DescribeAlarms",
     ]
   }
 
