@@ -18,7 +18,7 @@ module "helm_addon" {
 # AWS Provider
 #--------------------------------------
 module "aws_provider_irsa" {
-  count                             = try(local.aws_provider.enable, true) ? 1 : 0
+  count                             = try(var.aws_provider.enable, true) ? 1 : 0
   source                            = "../../../modules/irsa"
   create_kubernetes_namespace       = false
   create_kubernetes_service_account = false
@@ -33,7 +33,7 @@ module "aws_provider_irsa" {
 }
 
 resource "kubectl_manifest" "aws_controller_config" {
-  count = try(local.aws_provider.enable, true) ? 1 : 0
+  count = try(var.aws_provider.enable, true) ? 1 : 0
   yaml_body = templatefile("${path.module}/aws-provider/aws-controller-config.yaml", {
     iam-role-arn          = module.aws_provider_irsa[0].irsa_iam_role_arn
     aws-controller-config = local.aws_provider.controller_config
@@ -62,7 +62,7 @@ resource "time_sleep" "wait_30_seconds" {
 }
 
 resource "kubectl_manifest" "aws_provider_config" {
-  count = local.aws_provider.enable == true ? 1 : 0
+  count = var.aws_provider.enable == true ? 1 : 0
   yaml_body = templatefile("${path.module}/aws-provider/aws-provider-config.yaml", {
     aws-provider-config = local.aws_provider.provider_config
   })
