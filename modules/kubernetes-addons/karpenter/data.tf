@@ -6,9 +6,9 @@ data "aws_arn" "queue" {
 
 data "aws_iam_policy_document" "karpenter" {
   statement {
-    sid       = "Karpenter"
+    sid       = "AllowEc2Actions"
     effect    = "Allow"
-    resources = ["*"]
+    resources = ["arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:*"]
 
     actions = [
       "ec2:CreateFleet",
@@ -24,9 +24,36 @@ data "aws_iam_policy_document" "karpenter" {
       "ec2:DescribeSecurityGroups",
       "ec2:DescribeSpotPriceHistory",
       "ec2:DescribeSubnets",
-      "ec2:RunInstances",
+      "ec2:RunInstances"
+    ]
+  }
+
+  statement {
+    sid       = "AllowPassRole"
+    effect    = "Allow"
+    resources = ["arn:${var.addon_context.aws_partition_id}:iam::${var.addon_context.aws_caller_identity_account_id}:role/*"]
+
+    actions = [
       "iam:PassRole",
+    ]
+  }
+
+  statement {
+    sid       = "AllowGetPrice"
+    effect    = "Allow"
+    resources = [""]
+
+    actions = [
       "pricing:GetProducts",
+    ]
+  }
+
+  statement {
+    sid       = "AllowGetParameters"
+    effect    = "Allow"
+    resources = ["arn:${var.addon_context.aws_partition_id}:ssm:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:parameter/*"]
+
+    actions = [
       "ssm:GetParameter",
     ]
   }
@@ -34,7 +61,7 @@ data "aws_iam_policy_document" "karpenter" {
   statement {
     sid       = "ConditionalEC2Termination"
     effect    = "Allow"
-    resources = ["*"]
+    resources = ["arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:instance/*"]
     actions   = ["ec2:TerminateInstances"]
 
     condition {
