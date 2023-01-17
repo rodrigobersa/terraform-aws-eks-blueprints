@@ -6,15 +6,11 @@ data "aws_arn" "queue" {
 
 data "aws_iam_policy_document" "karpenter" {
   statement {
-    sid       = "AllowEc2Actions"
+    sid       = "AllowEc2DescribeActions"
     effect    = "Allow"
-    resources = ["arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:*"]
+    resources = ["*"]
 
     actions = [
-      "ec2:CreateFleet",
-      "ec2:CreateLaunchTemplate",
-      "ec2:CreateTags",
-      "ec2:DeleteLaunchTemplate",
       "ec2:DescribeAvailabilityZones",
       "ec2:DescribeImages",
       "ec2:DescribeInstances",
@@ -24,6 +20,22 @@ data "aws_iam_policy_document" "karpenter" {
       "ec2:DescribeSecurityGroups",
       "ec2:DescribeSpotPriceHistory",
       "ec2:DescribeSubnets",
+    ]
+  }
+
+  statement {
+    sid       = "AllowEc2Actions"
+    effect    = "Allow"
+    resources = [
+      "arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:*",
+      "arn:${var.addon_context.aws_partition_id}:ec2:${var.addon_context.aws_region_name}::image/*"
+      ]
+
+    actions = [
+      "ec2:CreateFleet",
+      "ec2:CreateLaunchTemplate",
+      "ec2:CreateTags",
+      "ec2:DeleteLaunchTemplate",
       "ec2:RunInstances"
     ]
   }
@@ -41,7 +53,7 @@ data "aws_iam_policy_document" "karpenter" {
   statement {
     sid       = "AllowGetPrice"
     effect    = "Allow"
-    resources = [""]
+    resources = ["*"]
 
     actions = [
       "pricing:GetProducts",
@@ -51,7 +63,7 @@ data "aws_iam_policy_document" "karpenter" {
   statement {
     sid       = "AllowGetParameters"
     effect    = "Allow"
-    resources = ["arn:${var.addon_context.aws_partition_id}:ssm:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:parameter/*"]
+    resources = ["arn:${var.addon_context.aws_partition_id}:ssm:${var.addon_context.aws_region_name}::parameter/*"]
 
     actions = [
       "ssm:GetParameter",
