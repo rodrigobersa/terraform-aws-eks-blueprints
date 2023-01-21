@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "external_secrets" {
     ]
     resources = concat(
       var.external_secrets_secrets_manager_arns,
-      ["arn:${var.addon_context.aws_partition_id}:secretsmanager:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:parameter/*"]
+      ["arn:${var.addon_context.aws_partition_id}:secretsmanager:${var.addon_context.aws_region_name}:${var.addon_context.aws_caller_identity_account_id}:secret:*"]
     )
   }
 }
