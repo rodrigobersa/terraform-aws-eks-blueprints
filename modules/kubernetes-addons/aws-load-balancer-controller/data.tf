@@ -20,10 +20,10 @@ data "aws_iam_policy_document" "aws_lb" {
     actions = ["elasticloadbalancing:DescribeTags"]
   }
 
-   statement {
+  statement {
     sid       = "AllowGetResources"
     effect    = "Allow"
-    resources = ["*"] 
+    resources = ["*"]
 
     actions = [
       "elasticloadbalancing:DescribeListenerCertificates",
