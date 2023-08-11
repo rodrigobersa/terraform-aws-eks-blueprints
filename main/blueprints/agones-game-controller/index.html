@@ -10,27 +10,27 @@
         <meta name="author" content="AWS">
       
       
-        <link rel="canonical" href="https://aws-ia.github.io/terraform-aws-eks-blueprints/main/getting-started/">
+        <link rel="canonical" href="https://aws-ia.github.io/terraform-aws-eks-blueprints/main/blueprints/agones-game-controller/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../../getting-started/">
       
       
-        <link rel="next" href="../blueprints/agones-game-controller/">
+        <link rel="next" href="../appmesh-mtls/">
       
-      <link rel="icon" href="../images/colored-logo.png">
+      <link rel="icon" href="../../images/colored-logo.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.19">
     
     
       
-        <title>Getting Started - Amazon EKS Blueprints for Terraform</title>
+        <title>Agones Game Controller - Amazon EKS Blueprints for Terraform</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
   
@@ -87,7 +87,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -112,7 +112,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#amazon-eks-deployment-with-agones-gaming-kubernetes-controller" class="md-skip">
           Skip to content
         </a>
       
@@ -132,9 +132,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Amazon EKS Blueprints for Terraform" class="md-header__button md-logo" aria-label="Amazon EKS Blueprints for Terraform" data-md-component="logo">
+    <a href="../.." title="Amazon EKS Blueprints for Terraform" class="md-header__button md-logo" aria-label="Amazon EKS Blueprints for Terraform" data-md-component="logo">
       
-  <img src="../images/white-logo.png" alt="logo">
+  <img src="../../images/white-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Agones Game Controller
             
           </span>
         </div>
@@ -231,9 +231,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Amazon EKS Blueprints for Terraform" class="md-nav__button md-logo" aria-label="Amazon EKS Blueprints for Terraform" data-md-component="logo">
+    <a href="../.." title="Amazon EKS Blueprints for Terraform" class="md-nav__button md-logo" aria-label="Amazon EKS Blueprints for Terraform" data-md-component="logo">
       
-  <img src="../images/white-logo.png" alt="logo">
+  <img src="../../images/white-logo.png" alt="logo">
 
     </a>
     Amazon EKS Blueprints for Terraform
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -272,6 +272,50 @@
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Blueprints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Blueprints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
     
@@ -285,117 +329,10 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Getting Started
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Getting Started
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy" class="md-nav__link">
-    Deploy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validate" class="md-nav__link">
-    Validate
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroy" class="md-nav__link">
-    Destroy
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Blueprints
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Blueprints
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../blueprints/agones-game-controller/" class="md-nav__link">
         Agones Game Controller
       </a>
+      
     </li>
   
 
@@ -407,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/appmesh-mtls/" class="md-nav__link">
+      <a href="../appmesh-mtls/" class="md-nav__link">
         AWS AppMesh mTLS
       </a>
     </li>
@@ -421,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/argocd/" class="md-nav__link">
+      <a href="../argocd/" class="md-nav__link">
         ArgoCD
       </a>
     </li>
@@ -435,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/blue-green-upgrade/" class="md-nav__link">
+      <a href="../blue-green-upgrade/" class="md-nav__link">
         Blue/Green Migration
       </a>
     </li>
@@ -449,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/elastic-fabric-adapter/" class="md-nav__link">
+      <a href="../elastic-fabric-adapter/" class="md-nav__link">
         Elastic Fabric Adapter
       </a>
     </li>
@@ -463,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/external-secrets/" class="md-nav__link">
+      <a href="../external-secrets/" class="md-nav__link">
         External Secrets
       </a>
     </li>
@@ -477,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/fargate-serverless/" class="md-nav__link">
+      <a href="../fargate-serverless/" class="md-nav__link">
         Fargate Serverless
       </a>
     </li>
@@ -491,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/fully-private-cluster/" class="md-nav__link">
+      <a href="../fully-private-cluster/" class="md-nav__link">
         Fully Private Cluster
       </a>
     </li>
@@ -505,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/ipv4-prefix-delegation/" class="md-nav__link">
+      <a href="../ipv4-prefix-delegation/" class="md-nav__link">
         IPv4 Prefix Delegation
       </a>
     </li>
@@ -519,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/ipv6-eks-cluster/" class="md-nav__link">
+      <a href="../ipv6-eks-cluster/" class="md-nav__link">
         IPv6 Networking
       </a>
     </li>
@@ -533,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/istio/" class="md-nav__link">
+      <a href="../istio/" class="md-nav__link">
         Istio
       </a>
     </li>
@@ -547,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/karpenter/" class="md-nav__link">
+      <a href="../karpenter/" class="md-nav__link">
         Karpenter
       </a>
     </li>
@@ -561,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/multi-tenancy-with-teams/" class="md-nav__link">
+      <a href="../multi-tenancy-with-teams/" class="md-nav__link">
         Multi-Tenancy w/ Teams
       </a>
     </li>
@@ -575,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/privatelink-access/" class="md-nav__link">
+      <a href="../privatelink-access/" class="md-nav__link">
         PrivateLink Access
       </a>
     </li>
@@ -589,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/stateful/" class="md-nav__link">
+      <a href="../stateful/" class="md-nav__link">
         Stateful
       </a>
     </li>
@@ -603,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/tls-with-aws-pca-issuer/" class="md-nav__link">
+      <a href="../tls-with-aws-pca-issuer/" class="md-nav__link">
         TLS w/ AWS PCA Issuer
       </a>
     </li>
@@ -617,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/vpc-cni-custom-networking/" class="md-nav__link">
+      <a href="../vpc-cni-custom-networking/" class="md-nav__link">
         VPC CNI Custom Networking
       </a>
     </li>
@@ -631,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blueprints/wireguard-with-cilium/" class="md-nav__link">
+      <a href="../wireguard-with-cilium/" class="md-nav__link">
         Wireguard /w Cilium
       </a>
     </li>
@@ -680,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iam/minimum-iam-policy/" class="md-nav__link">
+      <a href="../../iam/minimum-iam-policy/" class="md-nav__link">
         Minimum IAM policy
       </a>
     </li>
@@ -729,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v4-to-v5/motivation/" class="md-nav__link">
+      <a href="../../v4-to-v5/motivation/" class="md-nav__link">
         Motivation
       </a>
     </li>
@@ -743,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v4-to-v5/cluster/" class="md-nav__link">
+      <a href="../../v4-to-v5/cluster/" class="md-nav__link">
         Cluster
       </a>
     </li>
@@ -757,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v4-to-v5/addons/" class="md-nav__link">
+      <a href="../../v4-to-v5/addons/" class="md-nav__link">
         Addons
       </a>
     </li>
@@ -771,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v4-to-v5/teams/" class="md-nav__link">
+      <a href="../../v4-to-v5/teams/" class="md-nav__link">
         Teams
       </a>
     </li>
@@ -793,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -820,55 +757,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy" class="md-nav__link">
-    Deploy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validate" class="md-nav__link">
-    Validate
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroy" class="md-nav__link">
-    Destroy
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -885,64 +773,121 @@
   
 
 
-<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>This getting started guide will help you deploy your first EKS environment using EKS Blueprints.</p>
-<h2 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>First, ensure that you have installed the following tools locally.</p>
+<!-- BEGIN INCLUDE ../../examples/agones-game-controller/README.md -->
+<h1 id="amazon-eks-deployment-with-agones-gaming-kubernetes-controller">Amazon EKS Deployment with Agones Gaming Kubernetes Controller<a class="headerlink" href="#amazon-eks-deployment-with-agones-gaming-kubernetes-controller" title="Permanent link">&para;</a></h1>
+<p>This example shows how to deploy and run Gaming applications on Amazon EKS with Agones Kubernetes Controller</p>
+<ul>
+<li>Deploy Private VPC, Subnets and all the required VPC endpoints</li>
+<li>Deploy EKS Cluster with one managed node group in an VPC</li>
+<li>Deploy Agones Kubernetes Controller using Helm Providers</li>
+<li>Deploy a simple gaming server and test the application</li>
+</ul>
+<h1 id="what-is-agones">What is Agones<a class="headerlink" href="#what-is-agones" title="Permanent link">&para;</a></h1>
+<p>Agones is an Open source Kubernetes Controller with custom resource definitions and is used to create, run, manage and scale dedicated game server processes within Kubernetes clusters using standard Kubernetes tooling and APIs.
+This model also allows any matchmaker to interact directly with Agones via the Kubernetes API to provision a dedicated game server</p>
+<h1 id="what-is-gamelift">What is GameLift<a class="headerlink" href="#what-is-gamelift" title="Permanent link">&para;</a></h1>
+<p>Amazon GameLift enables developers to deploy, operate, and scale dedicated, low-cost servers in the cloud for session-based, multiplayer games.
+Built on AWS global computing infrastructure, GameLift helps deliver high-performance, high-reliability, low-cost game servers while dynamically scaling your resource usage to meet worldwide player demand.</p>
+<h2 id="how-to-deploy">How to Deploy<a class="headerlink" href="#how-to-deploy" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>Ensure that you have installed the following tools in your Mac or Windows Laptop before start working with this module and run Terraform Plan and Apply</p>
 <ol>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">aws cli</a></li>
-<li><a href="https://Kubernetes.io/docs/tasks/tools/">kubectl</a></li>
-<li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">terraform</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">AWS CLI</a></li>
+<li><a href="https://Kubernetes.io/docs/tasks/tools/">Kubectl</a></li>
+<li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Terraform</a></li>
 </ol>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<p>Select an example from the <a href="https://github.com/aws-ia/terraform-aws-eks-blueprints/tree/main/examples"><code>examples/</code></a> directory and follow the instructions in its respective README.md file. The deployment steps for examples generally follow the deploy, validate, and clean-up steps shown below.</p>
-<h3 id="deploy">Deploy<a class="headerlink" href="#deploy" title="Permanent link">&para;</a></h3>
-<p>To provision this example:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>terraform<span class="w"> </span>init
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>terraform<span class="w"> </span>apply<span class="w"> </span>-target<span class="w"> </span>module.vpc
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>terraform<span class="w"> </span>apply<span class="w"> </span>-target<span class="w"> </span>module.eks
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>terraform<span class="w"> </span>apply
+<h3 id="deployment-steps">Deployment Steps<a class="headerlink" href="#deployment-steps" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-clone-the-repo-using-the-command-below">Step 1: Clone the repo using the command below<a class="headerlink" href="#step-1-clone-the-repo-using-the-command-below" title="Permanent link">&para;</a></h4>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-ia/terraform-aws-eks-blueprints.git
 </span></code></pre></div>
-<p>Enter <code>yes</code> at command prompt to apply</p>
-<h3 id="validate">Validate<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h3>
-<p>The following command will update the <code>kubeconfig</code> on your local machine and allow you to interact with your EKS Cluster using <code>kubectl</code> to validate the CoreDNS deployment for Fargate.</p>
-<ol>
-<li>Run <code>update-kubeconfig</code> command:</li>
-</ol>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>--region<span class="w"> </span>&lt;REGION&gt;<span class="w"> </span>update-kubeconfig<span class="w"> </span>--name<span class="w"> </span>&lt;CLUSTER_NAME&gt;
+<h4 id="step-2-run-terraform-init">Step 2: Run Terraform INIT<a class="headerlink" href="#step-2-run-terraform-init" title="Permanent link">&para;</a></h4>
+<p>Initialize a working directory with configuration files</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>examples/game-tech/agones-game-controller
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>terraform<span class="w"> </span>init
 </span></code></pre></div>
-<ol>
-<li>View the pods that were created:</li>
-</ol>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Output should show some pods running</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>NAMESPACE<span class="w">     </span>NAME<span class="w">                                  </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>kube-system<span class="w">   </span>coredns-66b965946d-gd59n<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>92s
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>kube-system<span class="w">   </span>coredns-66b965946d-tsjrm<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>92s
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>kube-system<span class="w">   </span>ebs-csi-controller-57cb869486-bcm9z<span class="w">   </span><span class="m">6</span>/6<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>90s
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>kube-system<span class="w">   </span>ebs-csi-controller-57cb869486-xw4z4<span class="w">   </span><span class="m">6</span>/6<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>90s
+<h4 id="step-3-run-terraform-plan">Step 3: Run Terraform PLAN<a class="headerlink" href="#step-3-run-terraform-plan" title="Permanent link">&para;</a></h4>
+<p>Verify the resources created by this execution</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_REGION</span><span class="o">=</span>&lt;ENTER<span class="w"> </span>YOUR<span class="w"> </span>REGION&gt;<span class="w">   </span><span class="c1"># Select your own region</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>terraform<span class="w"> </span>plan
 </span></code></pre></div>
-<ol>
-<li>View the nodes that were created:</li>
-</ol>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Output should show some nodes running</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>NAME<span class="w">                                                </span>STATUS<span class="w">   </span>ROLES<span class="w">    </span>AGE<span class="w">     </span>VERSION
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>fargate-ip-10-0-10-11.us-west-2.compute.internal<span class="w">    </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>8m7s<span class="w">    </span>v1.24.8-eks-a1bebd3
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>fargate-ip-10-0-10-210.us-west-2.compute.internal<span class="w">   </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>2m50s<span class="w">   </span>v1.24.8-eks-a1bebd3
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>fargate-ip-10-0-10-218.us-west-2.compute.internal<span class="w">   </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>8m6s<span class="w">    </span>v1.24.8-eks-a1bebd3
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>fargate-ip-10-0-10-227.us-west-2.compute.internal<span class="w">   </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>8m8s<span class="w">    </span>v1.24.8-eks-a1bebd3
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>fargate-ip-10-0-10-42.us-west-2.compute.internal<span class="w">    </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>8m6s<span class="w">    </span>v1.24.8-eks-a1bebd3
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>fargate-ip-10-0-10-71.us-west-2.compute.internal<span class="w">    </span>Ready<span class="w">    </span>&lt;none&gt;<span class="w">   </span>2m48s<span class="w">   </span>v1.24.8-eks-a1bebd3
+<h4 id="step-4-finally-terraform-apply">Step 4: Finally, Terraform APPLY<a class="headerlink" href="#step-4-finally-terraform-apply" title="Permanent link">&para;</a></h4>
+<p><strong>Deploy the pattern</strong></p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>apply
 </span></code></pre></div>
-<h3 id="destroy">Destroy<a class="headerlink" href="#destroy" title="Permanent link">&para;</a></h3>
-<p>To teardown and remove the resources created in this example:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;module.eks_blueprints_addons&quot;</span><span class="w"> </span>-auto-approve
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;module.eks&quot;</span><span class="w"> </span>-auto-approve
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-auto-approve
+<p>Enter <code>yes</code> to apply.</p>
+<h4 id="configure-kubectl-and-test-cluster">Configure <code>kubectl</code> and test cluster<a class="headerlink" href="#configure-kubectl-and-test-cluster" title="Permanent link">&para;</a></h4>
+<p>EKS Cluster details can be extracted from terraform output or from AWS Console to get the name of cluster.
+This following command used to update the <code>kubeconfig</code> in your local machine where you run kubectl commands to interact with your EKS Cluster.</p>
+<h4 id="step-5-run-update-kubeconfig-command">Step 5: Run <code>update-kubeconfig</code> command<a class="headerlink" href="#step-5-run-update-kubeconfig-command" title="Permanent link">&para;</a></h4>
+<p><code>~/.kube/config</code> file gets updated with cluster details and certificate from the below command</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>eks<span class="w"> </span>--region<span class="w"> </span>&lt;enter-your-region&gt;<span class="w"> </span>update-kubeconfig<span class="w"> </span>--name<span class="w"> </span>&lt;cluster-name&gt;
+</code></pre></div>
+
+<h4 id="step-6-list-all-the-worker-nodes-by-running-the-command-below">Step 6: List all the worker nodes by running the command below<a class="headerlink" href="#step-6-list-all-the-worker-nodes-by-running-the-command-below" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</code></pre></div>
+
+<h4 id="step-7-list-all-the-pods-running-in-agones-system-namespace">Step 7: List all the pods running in <code>agones-system</code> namespace<a class="headerlink" href="#step-7-list-all-the-pods-running-in-agones-system-namespace" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>agones-system
+</code></pre></div>
+
+<h4 id="step-8-install-k9s-optional">Step 8: Install K9s (OPTIONAL)<a class="headerlink" href="#step-8-install-k9s-optional" title="Permanent link">&para;</a></h4>
+<p>This step is to install K9s client tool to interact with EKS Cluster</p>
+<div class="codehilite"><pre><span></span><code> curl -sS https://webinstall.dev/k9s | bash
+</code></pre></div>
+
+<p>Just type k9s after the installation and then you will see the output like this</p>
+<div class="codehilite"><pre><span></span><code>     k9s
+</code></pre></div>
+
+<p><img alt="Alt Text" src="https://github.com/aws-ia/terraform-aws-eks-blueprints/blob/9c6f8ea3e710f7b0137be07835653a2bf4f9fdfe/images/k9s-agones-cluster.png" title="K9s" /></p>
+<h4 id="step-9-deploying-the-sample-game-server">Step 9: Deploying the Sample game server<a class="headerlink" href="#step-9-deploying-the-sample-game-server" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="nx">kubectl</span><span class="w"> </span><span class="nx">create</span><span class="w"> </span><span class="o">-</span><span class="nx">f</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//raw.githubusercontent.com/googleforgames/agones/release-1.32.0/examples/simple-game-server/gameserver.yaml</span>
+
+
+<span class="nx">kubectl</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">gs</span>
+</code></pre></div>
+
+<p>Output looks like below</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">NAME</span><span class="w">                       </span><span class="nx">STATE</span><span class="w">   </span><span class="nx">ADDRESS</span><span class="w">         </span><span class="nx">PORT</span><span class="w">   </span><span class="nx">NODE</span><span class="w">                                        </span><span class="nx">AGE</span>
+<span class="nx">simple</span><span class="o">-</span><span class="nx">game</span><span class="o">-</span><span class="nx">server</span><span class="o">-</span><span class="mi">7</span><span class="nx">r6jr</span><span class="w">   </span><span class="nx">Ready</span><span class="w">   </span><span class="m m-Double">34.243.345.22</span><span class="w">   </span><span class="mi">7902</span><span class="w">   </span><span class="nx">ip</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">233</span><span class="p">.</span><span class="nx">eu</span><span class="o">-</span><span class="nx">west</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="nx">compute</span><span class="p">.</span><span class="nx">internal</span><span class="w">   </span><span class="mi">11</span><span class="nx">h</span>
+</code></pre></div>
+
+<h4 id="step-10-testing-the-sample-game-server">Step 10: Testing the Sample Game Server<a class="headerlink" href="#step-10-testing-the-sample-game-server" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>sudo yum install netcat
+
+nc -u &lt;ADDRESS&gt; &lt;PORT&gt;
+
+e.g.,  nc -u 34.243.345.22 7902
+</code></pre></div>
+
+<p>Output looks like below</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">TeamRole</span>:<span class="o">~/</span><span class="nv">environment</span><span class="o">/</span><span class="nv">eks</span><span class="o">-</span><span class="nv">blueprints</span><span class="w"> </span><span class="ss">(</span><span class="nv">main</span><span class="ss">)</span><span class="w"> </span>$<span class="w"> </span><span class="nv">echo</span><span class="w"> </span><span class="o">-</span><span class="nv">n</span><span class="w"> </span><span class="s2">&quot;UDP test - Hello Workshop&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nv">nc</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="mi">34</span>.<span class="mi">243</span>.<span class="mi">345</span>.<span class="mi">22</span><span class="w"> </span><span class="mi">7902</span>
+<span class="nv">Hello</span><span class="w"> </span><span class="nv">Workshop</span>
+<span class="nv">ACK</span>:<span class="w"> </span><span class="nv">Hello</span><span class="w"> </span><span class="nv">Workshop</span>
+<span class="k">EXIT</span>
+<span class="nv">ACK</span>:<span class="w"> </span><span class="k">EXIT</span>
+</code></pre></div>
+
+<h1 id="deploy-gamelift-fleetiq">Deploy GameLift FleetIQ<a class="headerlink" href="#deploy-gamelift-fleetiq" title="Permanent link">&para;</a></h1>
+<p>Amazon GameLift FleetIQ optimizes the use of low-cost Spot Instances for cloud-based game hosting with Amazon EC2. With GameLift FleetIQ, you can work directly with your hosting resources in Amazon EC2 and Auto Scaling while taking advantage of GameLift optimizations to deliver inexpensive, resilient game hosting for your players and makes the use of low-cost Spot Instances viable for game hosting</p>
+<p>This <a href="https://aws.amazon.com/blogs/gametech/introducing-the-gamelift-fleetiq-adapter-for-agones/">blog</a> will go through the details of deploying EKS Cluster using eksctl and deploy Agones with GameLift FleetIQ</p>
+<p>Download the sh and execute</p>
+<div class="codehilite"><pre><span></span><code>curl -O https://raw.githubusercontent.com/awslabs/fleetiq-adapter-for-agones/master/Agones_EKS_FleetIQ_Integration_Package%5BBETA%5D/quick_install/fleet_eks_agones_quickinstall.sh
+</code></pre></div>
+
+<h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
+<p>To clean up your environment, destroy the Terraform modules in reverse order.</p>
+<p>Destroy the Kubernetes Add-ons, EKS cluster with Node groups and VPC</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;helm_release.agones&quot;</span><span class="w"> </span>-auto-approve
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;module.eks_blueprints_addons&quot;</span><span class="w"> </span>-auto-approve
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;module.eks&quot;</span><span class="w"> </span>-auto-approve
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-target<span class="o">=</span><span class="s2">&quot;module.vpc&quot;</span><span class="w"> </span>-auto-approve
 </span></code></pre></div>
+<p>Finally, destroy any additional resources that are not in the above modules</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>terraform<span class="w"> </span>destroy<span class="w"> </span>-auto-approve
+</span></code></pre></div>
+<!-- END INCLUDE -->
 
 
 
@@ -984,10 +929,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>
