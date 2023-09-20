@@ -69,8 +69,6 @@ module "eks" {
 
   cluster_name                   = local.name
   cluster_version                = "1.27"
-  cluster_endpoint_public_access = true
-
   cluster_addons = {
     coredns    = {}
     kube-proxy = {}
@@ -142,29 +140,67 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5.0"
 
+  manage_default_vpc = true
+
   name = local.name
   cidr = local.vpc_cidr
-
   secondary_cidr_blocks = [local.secondary_vpc_cidr] # can add up to 5 total CIDR blocks
 
-  azs = local.azs
+  azs             = local.azs
   private_subnets = concat(
     [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 4, k)],
     [for k, v in local.azs : cidrsubnet(local.secondary_vpc_cidr, 2, k)]
   )
-  public_subnets = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 48)]
+
+#  public_subnets = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 48)]
   intra_subnets  = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 52)]
 
-  enable_nat_gateway = true
+  enable_nat_gateway = false
   single_nat_gateway = true
-
-  public_subnet_tags = {
-    "kubernetes.io/role/elb" = 1
-  }
 
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = 1
   }
+
+  tags = local.tags
+}
+
+module "vpc_endpoints" {
+  source  = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
+  version = "~> 5.1"
+
+  vpc_id = module.vpc.vpc_id
+
+  # Security group
+  create_security_group      = true
+  security_group_name_prefix = "${local.name}-vpc-endpoints-"
+  security_group_description = "VPC endpoint security group"
+  security_group_rules = {
+    ingress_https = {
+      description = "HTTPS from VPC"
+      cidr_blocks = [module.vpc.vpc_cidr_block]
+    }
+  }
+
+  endpoints = merge({
+    s3 = {
+      service         = "s3"
+      service_type    = "Gateway"
+      route_table_ids = module.vpc.private_route_table_ids
+      tags = {
+        Name = "${local.name}-s3"
+      }
+    }
+    },
+    { for service in toset(["autoscaling", "ecr.api", "ecr.dkr", "ec2", "ec2messages", "elasticloadbalancing", "sts", "kms", "logs", "ssm", "ssmmessages"]) :
+      replace(service, ".", "_") =>
+      {
+        service             = service
+        subnet_ids          = module.vpc.private_subnets
+        private_dns_enabled = true
+        tags                = { Name = "${local.name}-${service}" }
+      }
+  })
 
   tags = local.tags
 }

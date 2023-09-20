@@ -156,3 +156,9 @@ resource "aws_vpc_security_group_ingress_rule" "this" {
   to_port     = 443
   ip_protocol = "tcp"
 }
+
+resource "aws_cloud9_environment_ec2" "this" {
+  instance_type = "t3.medium"
+  name          = local.name
+  connection_type = "CONNECT_SSH"
+}
