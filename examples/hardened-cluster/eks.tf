@@ -6,8 +6,9 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 19.13"
 
-  cluster_name    = local.name
-  cluster_version = "1.27"
+  cluster_name                   = local.name
+  cluster_version                = local.cluster_version
+  cluster_endpoint_public_access = true
 
   # EKS Addons
   cluster_addons = {
@@ -23,12 +24,28 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   eks_managed_node_groups = {
-    initial = {
-      instance_types = ["m5.large"]
+    bottlerocket_default = {
+      instance_types             = ["m5.large"]
+      ami_id                     = data.aws_ami.eks_default_bottlerocket.image_id
+      platform                   = "bottlerocket"
+      use_custom_launch_template = false
 
       min_size     = 1
       max_size     = 5
       desired_size = 3
+
+      #ami_type                   = "BOTTLEROCKET_x86_64"
+      # enable_bootstrap_user_data = true
+      # bootstrap_extra_args       = <<-EOT
+      #   [settings.host-containers.admin]
+      #   enabled = false
+
+      #   [settings.host-containers.control]
+      #   enabled = true
+
+      #   [settings.kernel]
+      #   lockdown = "integrity"
+      # EOT
     }
   }
 
