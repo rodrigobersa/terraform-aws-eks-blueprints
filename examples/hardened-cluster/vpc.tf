@@ -110,8 +110,6 @@ resource "aws_vpc_security_group_ingress_rule" "this" {
   ip_protocol = "tcp"
 }
 
-
-
 resource "aws_security_group" "guardduty" {
   name        = "guardduty_vpce_allow_tls"
   description = "Allow TLS inbound traffic"
@@ -145,4 +143,3 @@ resource "aws_vpc_endpoint" "guardduty" {
 
   tags = local.tags
 }
-

@@ -1,5 +1,10 @@
 provider "aws" {}
 
+provider "aws" {
+  region = "us-east-1"
+  alias  = "virginia"
+}
+
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
@@ -31,6 +36,10 @@ data "aws_region" "current" {}
 data "aws_availability_zones" "available" {}
 
 data "aws_caller_identity" "current" {}
+
+data "aws_ecrpublic_authorization_token" "token" {
+  provider = aws.virginia
+}
 
 data "aws_ami" "eks_default_bottlerocket" {
   most_recent = true
