@@ -34,6 +34,7 @@ cainjector
 chdir
 cidrsubnet
 ciliumnetworkpolicy
+cloudinit
 clusterip
 clusterissuer
 clusterrole
@@ -52,6 +53,7 @@ crds
 curlimages
 cwlogs
 daemonset
+datasource
 dcgm
 distro
 ecrpublic
@@ -110,9 +112,11 @@ mtls
 nccl
 netcat
 nics
+nodeadm
 nodegroup
 nodeport
 nvme
+odcr
 oidc
 persistentvolume
 pkce
@@ -125,6 +129,7 @@ readyz
 reclaimpolicy
 redop
 replicaset
+resourcegroups
 rdmap
 rolearn
 rollouts
@@ -144,6 +149,7 @@ tcpdump
 templatefile
 tfstate
 tfvars
+timeadd
 tolerations
 tolist
 toset
