@@ -5,7 +5,7 @@ variable "ecr_account_id" {
   default     = ""
 }
 
-# defaults to local.region 
+# defaults to local.region
 variable "ecr_region" {
   type        = string
   description = "ECR repository AWS Region"

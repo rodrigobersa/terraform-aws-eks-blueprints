@@ -52,7 +52,7 @@ module "eks_blueprints_addons" {
   kube_prometheus_stack = {
     set = [{
       name  = "global.imageRegistry"
-      value = "${local.ecr_url}"
+      value = local.ecr_url
       },
       {
         name  = "prometheusOperator.image.repository"
@@ -88,7 +88,7 @@ module "eks_blueprints_addons" {
       },
       {
         name  = "grafana.global.imageRegistry"
-        value = "${local.ecr_url}"
+        value = local.ecr_url
       },
       {
         name  = "grafana.downloadDashboardsImage.repository"

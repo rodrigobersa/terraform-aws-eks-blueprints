@@ -7,6 +7,7 @@ This pattern demonstrates how to set up ECR cache pull-through for public images
 Follow the instructions [here](https://aws-ia.github.io/terraform-aws-eks-blueprints/getting-started/#prerequisites) for the prerequisites and steps to deploy this pattern.
 
 ## Validate
+
 Validate the pull trough cache rules connectivity:
 
 ```bash
@@ -100,6 +101,7 @@ kube-system             metrics-server-5d6489d58d-pbrxv                         
 ```
 
 ## Destroy
+
 {%
    include-markdown "../../docs/_partials/destroy.md"
 %}
